@@ -13,11 +13,11 @@ angular.module('ToDo', ['ionic'])
   });
 })
 
-.controller("firstCtrl", function($scope,$ionicModal){
+.controller("firstCtrl", function($scope,$ionicModal,$timeout){
 
   if(! angular.isUndefined(window.localStorage['tasks'])){
     $scope.tasks = JSON.parse(window.localStorage['tasks']);
-    $scope.default = 1;
+    //$scope.default = 1;
   }else{
     $scope.tasks = [
       {title: "first", done: true},
@@ -25,7 +25,7 @@ angular.module('ToDo', ['ionic'])
       {title: "third", done: false},
       {title: "fourth", done: false}
     ];
-    $scope.default = 0;
+    //$scope.default = 0;
   }
 
   $ionicModal.fromTemplateUrl('views/task.html',function(modal){
@@ -81,8 +81,16 @@ angular.module('ToDo', ['ionic'])
       $scope.tasks[id].title = task.title;
       $scope.tasks[id].done = task.done;
     }
-    $scope.taskModal.hide();
+
     saveItems();
+  
+    $scope.taskModal.hide();
+  }
+
+  $scope.saveTasks = function(){
+    $timeout(function(){
+      saveItems();  
+    });
   }
 
   function saveItems(){
