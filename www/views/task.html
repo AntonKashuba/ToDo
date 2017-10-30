@@ -1,16 +1,29 @@
-<div class="modal">    
+<div class="modal">   
+
     <ion-header-bar class="bar-secondary">
         <h1 class="title" ng-show="currentTaskid == -1">New One</h1>
         <h1 class="title" ng-show="currentTaskid > -1">Edit</h1>
         <button class="button button-clear button-positive" ng-click="closeTask()">cancel</button>
-      </ion-header-bar>
+    </ion-header-bar>
 
       <ion-content>
-        <form>
+        <form ng-submit="submitTask(activeTask)">
             <div class="list">
                 <label class="item item-input">
                     <input type="text" placeholder="have some plans?" ng-model="activeTask.title">
                 </label>
+                
+                <ul class="list">
+                    <li class="item item-toggle">
+                        <span class="toggle-item">Done</span>
+                        <label class="toggle toggle-positive second">
+                            <input type="checkbox" ng-model="activeTask.done">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
                 <div class="padding">
                     <button type="submit" class="button button-block button-positive" ng-show="currentTaskid == -1">Add</button>
                     <button type="submit" class="button button-block button-positive" ng-show="currentTaskid > -1">Save</button>
