@@ -18,6 +18,9 @@ Then run:
 ```bash
 $ ionic start myProject tabs --type=ionic1
 ```
+start project:
+
+ionic serve
 
 More info on this can be found on the Ionic [Getting Started](https://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/ionic-team/ionic-cli) repo.
 
