@@ -1,1 +1,22 @@
-/* Empty. Add your own CSS if you like */
+.deleteItem{
+    z-index: 10;
+    color: red;
+}
+
+.list .item-checkbox .title{
+    padding: 16px 0;
+    display: block;
+}
+
+.item-checkbox .checkbox {
+    right: auto;
+}
+
+.item.checked .title{
+    color: gray;
+    text-decoration: line-through;
+}
+
+.toggle-item {
+    color: #929292;
+}
