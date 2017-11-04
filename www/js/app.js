@@ -20,10 +20,10 @@ angular.module('ToDo', ['ionic'])
     //$scope.default = 1;
   }else{
     $scope.tasks = [
-      {title: "first", done: true},
-      {title: "second", done: false},
-      {title: "third", done: false},
-      {title: "fourth", done: false}
+      {title: "first", description: "first", done: true},
+      {title: "second", description: "second", done: false},
+      {title: "third", description: "third", done: false},
+      {title: "fourth", description: "fourth", done: false}
     ];
     //$scope.default = 0;
   }
@@ -42,6 +42,7 @@ angular.module('ToDo', ['ionic'])
     $scope.taskModal.show();
     $scope.activeTask = {
       title:"",
+      description:"",
       done:false
     }
     $scope.currentTaskid = -1;
@@ -60,6 +61,7 @@ angular.module('ToDo', ['ionic'])
     $scope.currentTaskid = id;
     $scope.activeTask = {
       title: task.title,
+      description: task.description,
       done: task.done
     }
     $scope.taskModal.show();
@@ -74,11 +76,13 @@ angular.module('ToDo', ['ionic'])
     if($scope.currentTaskid == -1){
       $scope.tasks.push({
         title: task.title,
+        description: task.description,
         done: false
       });
     } else{
       var id = $scope.currentTaskid;
       $scope.tasks[id].title = task.title;
+      $scope.tasks[id].description = task.description;
       $scope.tasks[id].done = task.done;
     }
 
