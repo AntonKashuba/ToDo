@@ -43,7 +43,7 @@ angular.module('ToDo', ['ionic'])
     $scope.activeTask = {
       title:"",
       description:"",
-      done:false
+      done: task.done
     }
     $scope.currentTaskid = -1;
   }
@@ -77,7 +77,7 @@ angular.module('ToDo', ['ionic'])
       $scope.tasks.push({
         title: task.title,
         description: task.description,
-        done: false
+        done: task.done
       });
     } else{
       var id = $scope.currentTaskid;
