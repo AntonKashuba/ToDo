@@ -43,18 +43,18 @@ angular.module('ToDo', ['ionic'])
     $scope.activeTask = {
       title:"",
       description:"",
-      done: ""
+      done: false
     }
     $scope.currentTaskid = -1;
-  }
+  };
 
   $scope.openTask = function(){
     $scope.taskModal.show();
-  }
+  };
 
   $scope.closeTask = function(){
     $scope.taskModal.hide();
-  }
+  };
 
   $scope.openTask = function(id){
     var task = $scope.tasks[id];
@@ -65,12 +65,12 @@ angular.module('ToDo', ['ionic'])
       done: task.done
     }
     $scope.taskModal.show();
-  }
+  };
 
   $scope.deleteTask = function(id){
     $scope.tasks.splice(id,1);
     saveItems();
-  }
+  };
 
   $scope.submitTask = function(task){
     if($scope.currentTaskid == -1){
@@ -89,7 +89,7 @@ angular.module('ToDo', ['ionic'])
     saveItems();
   
     $scope.taskModal.hide();
-  }
+  };
 
   $scope.saveTasks = function(){
     $timeout(function(){
